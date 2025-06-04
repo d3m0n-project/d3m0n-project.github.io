@@ -1,0 +1,248 @@
+[
+  {
+    "title": "App Layout Fundamentals",
+    "description": "Basic Entry Point to d3m0n layout system",
+    "type": "course",
+    "courses": [
+      {
+        "name": "Introduction to layouts",
+        "description": "Learn the basics of the d3m0n layout system and how to use the App API.",
+        "activities": [
+          {
+            "type": "text",
+            "title": "Introduction to d3m0n Layouts",
+            "value": "d3m0n os app system uses a <strong>efficient</strong> and <strong>flexible</strong> layout system to design the user interface of applications. It is designed to be <strong>simple and powerful</strong>, allowing developers to <strong>create user interfaces</strong> with minimal effort. \nThey allow you to create <strong>static only (no animations)</strong> complex layouts with ease, using a <strong>simple and intuitive Framework</strong>. \n<br><br>\nIn this course, we will cover <strong>the basics of the d3m0n layout system</strong> and <strong>how to use the App API to interact with it</strong>.\n<br><br>\nLet's embark on this exciting journey to <strong>master application design</strong> on d3m0n OS!"
+          },
+          {
+            "type": "text-important",
+            "value": "To continue to the next chapter, you need to complete the quiz. This is important to ensure that you have understood the concepts covered in this chapter."
+          },
+          {
+            "type": "quiz",
+            "title": "Layout Basics Quiz",
+            "questions": [
+              {
+                "question": "What is the main purpose of the d3m0n layout system?",
+                "options": [
+                  "To create 3D models",
+                  "To create User Interface layouts",
+                  "To handle animations"
+                ],
+                "answer": 1
+              },
+              {
+                "question": "Which API is used to interact with d3m0n layouts?",
+                "options": [
+                  "d3m0n API",
+                  "Layout API",
+                  "UI API",
+                  "HTML"
+                ],
+                "answer": 0
+              },
+              {
+                "question": "Is it possible to make animations using only d3m0n layout?",
+                "options": [
+                  "Of course!",
+                  "No"
+                ],
+                "answer": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Understanding Basic Layout Elements and Classes of Controls",
+        "description": "Learn the basics layout elements to make your future d3m0n Application.",
+        "activities": [
+          {
+            "type": "text",
+            "title": "Basic Layout Elements",
+            "value": "d3m0n layout system provides a set of basic elements that can be used to create user interfaces. These elements can be stored in a file with the extension <strong>.layout</strong> and placed in a directory called <strong>layouts</strong>"
+          },
+          {
+            "type": "text",
+            "title": "Create Your First Application",
+            "value": "To create your first application, you need to create a new folder anywhere in your computer and create a new file in it without extension called <strong>app</strong> inside it. This file will contain the app's informations."
+          },
+          {
+            "type": "image",
+            "src": "assets/app_create.png"
+          },
+          {
+            "type": "text",
+            "value": "You can now put this inside the <strong>app file</strong> to make your first application: <br><br>\n<u>name</u> is the name of your application, <br>\n<u>package</u> is the package name of your application: should be unique, <br>\n<u>icon</u> is the path to the icon of your application, <br>\n<u>perms</u> is the permissions required by your application, <br>\n<u>start_path</u> is the path where your application will start, <br>\n<u>category</u> is the category of your application."
+          },
+          {
+            "type": "code",
+            "code_type": "manifest",
+            "value": "name: myApp\npackage: com.myteam.myApp\nicon: default\nperms: none\nstart_path: ~\ncategory: tests"
+          },
+          {
+            "type": "text",
+            "value": "\nNow you can create a new file called <strong>main.layout</strong> in a new folder called <strong>layouts</strong>.\n<br>\nThis is now the structure of your application:\n<br><br>\nmyAppDirectory/ <br>\n├── app<br>\n└── layouts/<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── main.layout<br>\n<br><br>\nThe <strong>main.layout</strong> file will contain the layout of your application. You can use the following code to create a simple layout with a red rectangle on the left side of the screen:"
+          },
+          {
+            "type": "code",
+            "value": "# d3m0n layout\n\nWindow:\n\twidth=\"100%\";\n\theight=\"100%\";\n\ttitle=\"Color Test\";\n\tbg_color=\"white\";\n\ttopbar=\"true\";\n\nRect:\n\tbg_color=\"red\";\n\tlocation=\"10, 10\";\n\twidth=\"10\";\n\theight=\"100%\";",
+            "code_type": "layout"
+          },
+          {
+            "type": "text",
+            "value": "As you can see, the layout is defined using a simple syntax. The <strong>Window</strong> element defines the main window of the application, and the <strong>Rect</strong> element defines a rectangle that will be displayed on the left side of the screen.\n<br><br>\nProperties of the elements are defined using the <strong>name=\"value\";</strong> syntax, where <strong>name</strong> is the name of the property and <strong>value</strong> is the value of the property.\n<br> \nHere is a list of the Controls that can be used in d3m0n layout elements:\n<ul>\n<li><strong>TextBox</strong>: A text input box.</li>\n<li><strong>ListView</strong>: A control to show a list of items.</li>\n<li><strong>ProgressBar</strong>: A bar that can used to select a number between min and max defined by user.</li>\n<li><strong>CheckBox</strong>: A simple check switch with two states (on and off).</li>\n<li><strong>RadioButton</strong>: A simple on and off switch but once you clicked you cannot remove it => for single choice inputs.</li>\n<li><strong>RawHtml (⚠️ don't work)</strong>: A simple HTML display for custom controls.</li>\n<li><strong>WebView (⚠️ don't work)</strong>: A simple web browser.</li>\n<li><strong>Rect</strong>: A rectangle.</li>\n<li><strong>Switch</strong>: A on and off switch.</li>\n<li><strong>Text</strong>: A simple text.</li>\n<li><strong>Image</strong>: A simple rect where you can display your images.</li>\n<li><strong>RoundButton</strong>: A regular button but with round corners.</li>\n<li><strong>Button</strong>: A simple button.</li>\n<li><strong>Hscroll</strong>: A horizontal rect with a scroll bar.</li>\n<li><strong>Vscroll</strong>: A vertical rect with a scroll bar.</li>\n</ul>\n<br>\nMore infos about these controls can be found in the <a href=\"https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/api.md#controls\">documentation</a>\n"
+          },
+          {
+            "type": "quiz",
+            "title": "Layout Elements Quiz",
+            "questions": [
+              {
+                "question": "What is the control that can display an image?",
+                "options": [
+                  "A WebView",
+                  "A PictureBox",
+                  "An Image",
+                  "A Canvas"
+                ],
+                "answer": 2
+              },
+              {
+                "question": "Which control does not exists in d3m0n layout?",
+                "options": [
+                  "Hscroll",
+                  "Rect",
+                  "WebView",
+                  "SearchBar"
+                ],
+                "answer": 3
+              },
+              {
+                "question": "Whats the difference between a <strong>WebView</strong> and an <strong>Image</strong> control?",
+                "options": [
+                  "Only WebView can display HTML content",
+                  "Only PictureBox can display HTML content",
+                  "Both can display HTML content",
+                  "Neither can display HTML content"
+                ],
+                "answer": 0
+              },
+              {
+                "question": "Whats the difference between a <strong>Switch</strong>, a <strong>CheckBox</strong> and a <strong>RadioButton</strong>?",
+                "options": [
+                  "The name",
+                  "Only the design",
+                  "The functionality"
+                ],
+                "answer": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Running Your First Application",
+        "description": "You have created your first application, now you will learn how to run it.",
+        "activities": [
+          {
+            "type": "text",
+            "title": "Running Your First Application",
+            "value": "\nTo run your first application, you first need to create a executable application file.\n<br>\nThis file can be simply created by zipping the <strong>app and the layouts folder together</strong>. <br>\nThen rename the file to somthing like <u>changeMe.d3m0n</u>\n<br><br>\nThat's it! You can now run your application by uploading on your d3m0n device and put it in the <strong>applications</strong> directory.\n<br>\nNow you can run your application by clicking on it in the d3m0n OS menu!!\n\n<br><br><br>\nYou can also run your application by using the <a href=\"../studio/\">d3m0n App Studio</a> or the <a href=\"../emulator/\">Device Emulator</a> to test your app's layout in the d3m0n OS. <br>\n<br>\nJust import your layout file and it will show you what it will look like in the d3m0n OS.\n"
+          },
+          {
+            "type": "image",
+            "src": "assets/app_view.png"
+          },
+          {
+            "type": "text",
+            "value": "Making applications layouts is nice but without a live rendering it's harder to do so you can use the <a href=\"../studio/\">No Code App Studio</a> to create unique designs.\n<br>\nJust drag and drop the controls you want to use and then edit their properties in the right panel."
+          },
+          {
+            "type": "quiz",
+            "title": "Layout Basics Quiz",
+            "questions": [
+              {
+                "question": "What is the main purpose of the d3m0n layout system?",
+                "options": [
+                  "To create 3D models",
+                  "To create User Interface layouts",
+                  "To handle animations"
+                ],
+                "answer": 1
+              },
+              {
+                "question": "Which API is used to interact with d3m0n layouts?",
+                "options": [
+                  "d3m0n API",
+                  "Layout API",
+                  "UI API",
+                  "HTML"
+                ],
+                "answer": 0
+              },
+              {
+                "question": "Is it possible to make animations using only d3m0n layout?",
+                "options": [
+                  "Of course!",
+                  "No"
+                ],
+                "answer": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Scripting Fundamentals",
+    "description": "Basic Entry Point to d3m0n source system",
+    "type": "course",
+    "courses": [
+      {
+        "name": "Introduction to scripting",
+        "description": "Learn the basics of the d3m0n scripting system and how to interract with the layout.",
+        "activities": [
+          {
+            "type": "text",
+            "title": "Introduction to d3m0n Scripting",
+            "value": "Design is cool but it's only static so scripting is the way to make your application dynamic and interactive. In this course, we will cover the basics of the d3m0n scripting system and how to use the App API to interact with it."
+          },
+          {
+            "type": "text-important",
+            "value": "All you app scripts should start with the header <strong>'# d3m0n source'</strong> to be recognized by the d3m0n system. This is important to avoid conflicts with other scripts and to ensure that your app runs correctly."
+          },
+          {
+            "type": "code",
+            "value": "# d3m0n source\n\nWindow.OnCreate =>\n\tconsole.logn(\"This is a colored text with a new line\", \"lime\");\n\tprint(\"Do this if you bored of using colors\");\n    sleep(1000);\n    alert(\"This is an alert message\");\n    system.log(\"This is a log message without a new line\", \"red\");",
+            "code_type": "script"
+          },
+          {
+            "type": "quiz",
+            "title": "Scripting Basics Quiz",
+            "questions": [
+              {
+                "question": "What is the difference between log and logn?",
+                "options": [
+                  "The new-line after the message",
+                  "The color",
+                  "There is no difference"
+                ],
+                "answer": 0
+              },
+              {
+                "question": "Which function can wait 3s before continue running?",
+                "options": [
+                  "time.sleep(3000)",
+                  "System.Threading.Sleep(3000)",
+                  "sleep(3000)",
+                  "wait(3)"
+                ],
+                "answer": 2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
