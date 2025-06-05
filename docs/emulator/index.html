@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <title>d3m0n Device Emulator</title>
+  <meta charset="UTF-8">
+  <link href="./emulator.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body>
+  <div class="emulator-container">
+    <h1>d3m0n Device Emulator</h1>
+    <p>Welcome to the d3m0n emulator! Here you can test out the d3m0n operating system.</p>
+    <p>Note: This is a basic emulator and may not support all features of the actual d3m0n OS.</p>
+    <p>To get started, select a device from the dropdown menu and click the start button. You can then interact with the device as if it were a real d3m0n device.</p>
+    <br>
+    <h3 style="text-align: center; font-weight: bold;">⚠️ This Emulator is not complete, only layouts are working ⚠️</h3>
+    <h3 style="text-align: center; font-weight: bold;">And only some controls are available</h3>
+    <br>
+    <p style="text-align: center; display: flex; align-self: start;">device:
+      <select id="deviceSelect" style="margin: 0px 10px;">
+        <option>d3m0n c1</option>
+      </select>
+
+      <span id="runningTime">Stopped</span>
+
+      <!-- start -->
+      <svg onclick="selectDevice()" class="svgBtn" style="margin: 0px 10px;" id="runBtn" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+        <path d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z" fill="#139418"/>
+      </svg>
+      <!-- stop -->
+      <svg onclick="stopRequest = true;" style="margin-right: 10px;" class="svgBtn" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+        <path d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" fill="#c71417"/>
+      </svg>
+    </p>
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+      <canvas id="emulator" width="240" height="320">
+          Error: Your browser does not support canvas.
+      </canvas>
+      <div style="display: flex; min-width: 250px; height: -webkit-fill-available; display: flex; flex-direction: column;">
+        <h2>Console</h2>
+        <div id="consoleOutput" style="background-color: #2e2e2e; min-height: 200px; height: -webkit-fill-available; overflow-y: auto; padding: 10px; border-radius: 5px;">
+          <!-- console output goes here -->
+        </div>
+      </div>
+      <div style="float: right; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h2>Apps List</h2>
+        <div id="appsList" style="width: 100%; height: 100%; margin-right: 50px;">
+          <!-- apps goes here -->
+        </div>
+        
+        <button onclick="loadPackage()">Import App</button>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div style="position: absolute; top: 30px; align-items: end; right: 30px; display: flex; flex-direction: column; padding-left: 50px; padding-right: 50p; margin-top: 20px;">
+      <img style="width: 100%; max-width: 100px;" src="https://4re5group.github.io/public/external/pastedimage-tlvr-200h.png">
+      <span>Copyright © 4RE5 group - <span id="year">2025</span></span>
+      <script type="text/javascript">
+          document.getElementById("year").innerHTML = new Date().getFullYear(); 
+      </script>
+    </div>
+
+
+    <script src="controls.js"></script>
+    <script src="emulator.js"></script>
+    <script src="d3m0n_c1.js"></script>
+      
+  </div>
+</body>

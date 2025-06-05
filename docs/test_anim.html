@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rotating Phone</title>
+    <style>
+        body {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .phone {
+            width: 50px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s linear infinite;
+        }
+
+        .phone-body {
+            width: 50px;
+            height: 100px;
+            background-color: #333;
+            border-radius: 5px;
+            position: absolute;
+            transform: translateZ(5px);
+        }
+
+        .phone-side {
+            width: 5px;
+            height: 100px;
+            background-color: #555;
+            position: absolute;
+            top: 0;
+            left: 25px;
+            transform: rotateY(90deg) translateZ(20px);
+        }
+
+        .phone-top {
+            width: 50px;
+            height: 5px;
+            background-color: #555;
+            position: absolute;
+            top: -2.5px;
+            left: 0;
+            transform: rotateX(90deg) translateY(0px);
+        }
+
+        .phone-back {
+            width: 50px;
+            height: 100px;
+            background-color: #444;
+            border-radius: 5px;
+            position: absolute;
+            transform: translateZ(-5px);
+        }
+
+        .screen {
+            width: 45px;
+            height: 85px;
+            background-color: #666;
+            margin: 8px auto;
+            border-radius: 3px;
+            position: relative;
+            transform: translateZ(5px);
+        }
+
+        .button {
+            width: 10px;
+            height: 10px;
+            background-color: #999;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateZ(5px);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="phone-body"></div>
+        <div class="phone-side"></div>
+        <div style="transform: rotateY(90deg) translateZ(-25px);" class="phone-side"></div>
+        <div class="phone-top"></div>
+        <div style="transform: rotateX(90deg) translateZ(-100px);" class="phone-top"></div>
+        <div class="phone-back"></div>
+        <div class="screen"></div>
+        <div class="button"></div>
+        <h1>hello</h1>
+    </div>
+</body>
+</html>

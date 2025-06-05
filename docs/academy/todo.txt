@@ -1,0 +1,7 @@
+TODO:
+fix the copying: muntiple functions => error parsing
+
+# add chapters
+using the shell
+using the source
+using modules

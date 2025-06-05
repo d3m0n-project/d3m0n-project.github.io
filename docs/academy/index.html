@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d3m0n Academy - Online Courses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadChapters()">
+    <header>
+        <div class="logo">d3m0n Academy</div>
+        <nav>
+            <ul>
+                <li><a href="../">Back</a></li>
+                <li><a href="#courses">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Learn New Skills Online</h1>
+        <p>Explore a variety of courses designed to help you achieve your goals.</p>
+        <a href="#courses" class="btn">Browse Courses</a>
+    </section>
+
+    <h2 style="width: 100%; align-self: center; text-align: center;">Available Courses</h2>
+
+    <div id="coursesList">
+        <!-- will be added  -->
+    </div>
+
+    <section class="courses">
+        <div class="course-card">
+            <h3>App Design</h3>
+            <p>Learn the basics of d3m0n layouts and start building interactive applications.</p>
+            <a href="#courses" class="btn">Learn Now</a>
+        </div>
+        <div class="course-card">
+            <h3>Dynamic Applications</h3>
+            <p>Master the skills needed to become a d3m0n developer.</p>
+            <a href="#courses" class="btn">Learn Now</a>
+        </div>
+        <div class="course-card">
+            <h3>Better User Privacy</h3>
+            <p>Contribute to user privacy and safety with the open-source community.</p>
+            <a href="#courses" class="btn">Learn Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 4re5 group. All rights reserved.</p>
+    </footer>
+    <div class="course-window">
+        <div style="width: 100%;">
+            <div>
+                <h2 id="CurrentChapterName">Chapter 1</h2>
+                <img src="../assets/cross.png" style="width: 35px; height: 35px; float: right; margin-right: calc(35px + 20px);" onclick="closeCourseWindow()">
+            </div>
+            
+            <div class="activityHeader">
+                <h3 id="CurrentChapterTitle">Chapter title</h3>
+                <div style="float: right;" class="progress-container">
+                    <div class="progress-bar">
+                        <div id="CurrentChapterProgress" class="progress"></div>
+                    </div> 
+                    <p id="CurrentChapterProgressText" class="progress-text">0/9 Challenges</p>
+                </div>
+            </div>
+            <p id="CurrentChapterDescription">Chapter description</p>
+        </div>
+        <div id="activitesDiv" class="activitesDiv">
+            <section id="courseActivities" class="courseActivities" class="activities">
+                <!-- activites here -->
+            </section>
+            <section id="courseQuiz" style="height: max-content; justify-content: start; flex-direction: column; display: flex; width: auto; " class="activities">
+                <!-- activites here -->
+            </section>
+            
+        </div>
+        <button id="courseNextChapter" class="btn" style="width: 100%; margin-top: 10px; margin-bottom: 10px; display: none;">Next Chapter</button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js">
+        function confetti()
+        {
+        var myConfetti = confetti.create(canvas, {
+            resize: false,
+            useWorker: true
+            });
+            myConfetti({
+            particleCount: 500,
+            spread: 160
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
