@@ -8,6 +8,7 @@ dropZone.style.height="320";
 var currentID = "";
 var idCounter=0;
 var globalArgs = ["color", "bg_color", "visible", "enabled", "width", "height", "margin_top",  "margin_left", "margin_right", "margin_bottom"]
+var currentImageInput = "edit-src";
 
 var iconsList = new Map();
 iconsList.set("default", "https://d3m0n-project.github.io/d3m0n_c1/assets/logo_dark.png");
@@ -18,7 +19,7 @@ const Controls = {
     "TextBox": {
         "defaultHTML": "<input controltype='TextBox' style='width: 100%; height: 100%; '></input>",
         "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/TextBox.md",
-        "edit": ["content", "font_size", "bold", "type", "text_align"],
+        "edit": ["content", "font_size", "bold", "text_align"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
@@ -275,10 +276,8 @@ function loadEdit(type) {
             try {
                 document.getElementById("customEdit-"+element).style.display = "block";
             } catch(e) {
-                console.log("customEdit-"+element+" is not defined");
+                console.error("customEdit-"+element+" is not defined");
             }
-            
-            // console.log(element);
         }
     }
 
@@ -288,11 +287,16 @@ function loadEdit(type) {
 }
 
 function setThemeIcon(path) {
-    document.getElementById("edit-src").value = path;
+    document.getElementById(currentImageInput).value = path;
     document.getElementById('iconSelector').style.display = 'none';
-    // https://api.github.com/repos/d3m0n-project/d3m0n_os/contents/rootfs/usr/share/d3m0n/themes/default_dark/icons
-    editSrc(path);
     
+    // update src if it's an image
+    if(currentImageInput == "edit-src") {
+        editSrc(path);
+    }
+    else if(currentImageInput == "edit-image") { // for RoundButton
+        document.getElementById(currentImageInput).dispatchEvent(new Event('change'));
+    }
 }
 
 function createDraggableElement(type) {
@@ -418,11 +422,10 @@ buildButton.addEventListener('click', () => {
     var layout = generateLayout(draggables);
     console.log(layout);
     downloadfile("app.layout", layout);
-    // layoutElement.textContent = generateLayout(draggables);
 });
 function generateLayout(draggables) {
     var layout = `# d3m0n studio generated app
-# https://d3m0n-project.github.io/d3m0n_c1/studio.html
+# https://d3m0n.4re5.com/studio/
 
 Window:
     name="My App";
@@ -444,10 +447,14 @@ Window:
         // add custom args
         if(type != null) {
             layout+=type+":\n";
+            console.log(Controls[type]["edit"]);
             Controls[type]["edit"].forEach(edit => {
-                console.log('edit-'+edit);
+                if (!document.getElementById('edit-'+edit))
+                    console.error("could not find element by id: edit-"+edit);
                 value = document.getElementById('edit-'+edit).value;
-                if(value == null || value=="" || value==undefined) { value = document.getElementById('edit-'+edit).checked?"true":"false"; }
+                if(value == null || value=="" || value==undefined) {
+                    value = document.getElementById('edit-'+edit).checked?"true":"false";
+                }
                 layout+="   "+edit+"=\""+value+"\";\n";
             });
         }

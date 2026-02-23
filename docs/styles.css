@@ -245,86 +245,86 @@ left:5px;
   /* mask:url("./assets/chevron.png") center/contain; */
 }
 .paste-button {
-position: relative;
-display: block;
-font-family: Noto Sans,Cantarell,sans-serif;
-padding: 10px 13px;
-display: inline-block;
-height: 43px;
-border: 1px solid transparent;
-color: var(--text-color-dark);
-text-transform: uppercase;
-cursor: pointer;
+  position: relative;
+  display: block;
+  font-family: Noto Sans,Cantarell,sans-serif;
+  padding: 10px 13px;
+  display: inline-block;
+  height: 70px;
+  border: 1px solid transparent;
+  color: var(--text-color-dark);
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .dropdown_button:hover {
-color: #367BF0;
+  color: #367BF0;
 }
 
 .dropdown_button {
-display: flex;
-flex-direction: row;
-background-color: transparent;
-color: white;
-text-transform: uppercase;
-cursor: pointer;
-text-shadow: 0 0 1px #fff,var(--nav-text-shadow);
-padding: 10px 15px;
-font-size: 15px;
-font-weight: bold;
-border: 2px solid transparent;
-border-radius: 15px;
-cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-shadow: 0 0 1px #fff,var(--nav-text-shadow);
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .dropdown-content {
---nav-text-shadow: 0 0 20px rgba(0, 0, 0, .5);
-top: 50px;
-display: none;
-font-size: 15px;
-position: absolute;
-z-index: 1;
-min-width: 200px;
-background-color: white;
-border: 2px solid white;
-border-radius: 0px 15px 15px 15px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  --nav-text-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  top: 40px;
+  display: none;
+  font-size: 15px;
+  position: absolute;
+  z-index: 1;
+  min-width: 200px;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 0px 15px 15px 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  transition: 1s ease-in-out;
 }
 
 .dropdown-content a {
-border-radius: 0px 15px 15px 15px;
-font-family: Noto Sans,Cantarell,sans-serif;
-line-height: 1.5;
-font-size: 15px;
-color: black;
-padding: 8px 10px;
-text-decoration: none;
-display: block;
-/* transition: 0.1s; */
+  border-radius: 0px 15px 15px 15px;
+  font-family: Noto Sans,Cantarell,sans-serif;
+  line-height: 1.5;
+  font-size: 15px;
+  color: black;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
-border-radius: 0px 15px 15px 15px;
-background-color: white;
-color: #367BF0;
+  border-radius: 0px 15px 15px 15px;
+  background-color: white;
+  color: #367BF0;
 }
 
 .dropdown-content a:focus {
-color: black;
+  color: black;
 }
 
 .paste-button:hover button {
-border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .paste-button:hover .dropdown-content {
-display: block;
--webkit-animation: 0.2s ease 0s normal forwards 1 fadein;
-animation: 0.2s ease 0s normal forwards 1 fadein;
+  display: block;
+  -webkit-animation: 0.2s ease 0s normal forwards 1 fadein;
+  animation: 0.2s ease 0s normal forwards 1 fadein;
 }
 
 .dropdown_button:hover .chevron {
-background:#367BF0;
+  background:#367BF0;
 }
 
 
@@ -332,49 +332,49 @@ background:#367BF0;
 /* keytype animation */
 
 .dynamic-txts {
-text-align: left;
-/* margin-left: 15px; */
-height: 90px;
-line-height: 90px;
-overflow: hidden;
+  text-align: left;
+  /* margin-left: 15px; */
+  height: 90px;
+  line-height: 90px;
+  overflow: hidden;
 }
 .dynamic-txts li{
-list-style: none;
-text-align: left;
-color: white;
-font-size: 60px;
-font-weight: 500;
-position: relative;
-top: 0;
-animation: slide 12s steps(4) infinite;
+  list-style: none;
+  text-align: left;
+  color: white;
+  font-size: 60px;
+  font-weight: 500;
+  position: relative;
+  top: 0;
+  animation: slide 12s steps(4) infinite;
 }
 @keyframes slide {
-100%{
-  top: -360px;
-}
+  100%{
+    top: -360px;
+  }
 }
 .dynamic-txts li span{
-position: relative;
-margin: 5px 0;
-line-height: 90px;
+  position: relative;
+  margin: 5px 0;
+  line-height: 90px;
 }
 .dynamic-txts li span::after{
-content: "";
-position: absolute;
-left: 0;
-height: 100px;
-width: 100%;
-background: black;
-border-left: 2px solid white;
-animation: typing 3s steps(10) infinite;
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background: black;
+  border-left: 2px solid white;
+  animation: typing 3s steps(10) infinite;
 }
 @keyframes typing {
-40%, 60%{
-  left: calc(100% + 30px);
-}
-100%{
-  left: 0;
-}
+  40%, 60%{
+    left: calc(100% + 30px);
+  }
+  100%{
+    left: 0;
+  }
 }
 
 

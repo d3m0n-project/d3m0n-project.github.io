@@ -128,7 +128,7 @@ class d3m0n_c1 extends Emulator {
         appList.innerHTML = ""; // clear the app list
 
         // Draw wallpaper image
-        await drawImage(0, 0, this.width, this.height, uriGetFromRoot("/wallpapers/default.png"));
+        await drawImage(0, 0, this.width, this.height, uriGetFromRoot("wallpapers/default.png"));
 
         var slot_x = 0;
         var slot_y = 0;
@@ -164,7 +164,7 @@ class d3m0n_c1 extends Emulator {
         this.start_timer();
 
         // Draw splash image first
-        await drawImage(0, 0, this.width, this.height, uriGetFromRoot("/splash/splash.png"));
+        await drawImage(0, 0, this.width, this.height, uriGetFromRoot("src/splash/splash.png"));
 
         // Draw text on top of the splash image
         await drawText(0, 0, "booting...", "red");
