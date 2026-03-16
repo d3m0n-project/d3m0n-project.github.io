@@ -180,7 +180,7 @@
         <h2 style="margin-top: 20px; margin-left: 20px;">theme icon</h2>
         <div id="themeIconsList" style="overflow-x: hidden; align-items: center; justify-content: center; overflow-y: scroll; display: flex; flex-direction: row; flex-wrap: wrap;">
             <!-- <div class="themeIconItem">
-                <img style="width: 80%; height: 80%;" src="https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/themes/default_dark/icons/contacts.png?raw=true">
+                <img style="width: 80%; height: 80%;" src="https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/themes/default_dark/icons/contacts.png?raw=true">
                 <h3 style="margin: 0px;">Test</h3>
             </div> -->
         </div>
@@ -199,7 +199,7 @@
 
     <script src="./app.js"></script>
     <script>
-        fetch("https://api.github.com/repos/d3m0n-project/d3m0n_os/contents/rootfs/usr/share/d3m0n/themes/default_dark/icons").then(response => response.json())
+        fetch("https://api.github.com/repos/d3m0n-project/d3m0n_os/contents/rootfs/themes/default_dark/icons").then(response => response.json())
         .then(data => {
             for(i=0; i<data.length; i++) {
                 var name = data[i]["name"];
