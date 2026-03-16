@@ -100,7 +100,7 @@ function settingGet(name, url) {
 }
 
 function uriGetFromRoot(name) {
-    return "https://raw.githubusercontent.com/d3m0n-project/d3m0n_os/refs/heads/main/rootfs/usr/share/d3m0n/"+name;
+    return "https://raw.githubusercontent.com/d3m0n-project/d3m0n_os/refs/heads/main/rootfs/"+name;
 }
 
 
