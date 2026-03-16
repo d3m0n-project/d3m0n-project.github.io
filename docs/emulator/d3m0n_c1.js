@@ -128,7 +128,7 @@ class d3m0n_c1 extends Emulator {
         appList.innerHTML = ""; // clear the app list
 
         // Draw wallpaper image
-        await drawImage(0, 0, this.width, this.height, uriGetFromRoot("wallpapers/default.png"));
+        await drawImage(0, 0, this.width, this.height, uriGetFromRoot("wallpapers/default.bmp"));
 
         var slot_x = 0;
         var slot_y = 0;
