@@ -112,7 +112,7 @@ function getAppFile(package, name, type='layout') {
             a = package.slice(15, package.length).split(".");
             category = a[0];
             appName = a[1];
-            url = "https://raw.githubusercontent.com/d3m0n-project/d3m0n_os/refs/heads/main/rootfs/usr/share/applications/" + category +"/" + appName + "/source/"+type+"s/"+name+"."+type;
+            url = "https://raw.githubusercontent.com/d3m0n-project/d3m0n_os/refs/heads/main/applications/" + category +"/" + appName + "/source/"+type+"s/"+name+"."+type;
         } else {
             return "File not found";
         }
