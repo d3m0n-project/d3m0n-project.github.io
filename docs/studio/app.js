@@ -18,105 +18,105 @@ function add_iconsList(name, url) { iconsList.set(name, url); }
 const Controls = {
     "TextBox": {
         "defaultHTML": "<input controltype='TextBox' style='width: 100%; height: 100%; '></input>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/TextBox.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/TextBox.md",
         "edit": ["content", "font_size", "bold", "text_align"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "ProgressBar": {
         "defaultHTML": "<progress controltype='ProgressBar' max='100' value='0'></progress>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/ProgressBar.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/ProgressBar.md",
         "edit": ["min", "value", "max"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "CheckBox": {
         "defaultHTML": "<input controltype='CheckBox' type='checkbox'></input>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/CheckBox.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/CheckBox.md",
         "edit": ["text_align", "font_size", "checked", "content"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "RawHtml": {
         "defaultHTML": "",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/RawHtml.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/RawHtml.md",
         "edit": ["HTML"],
         "defaultWidth": 50,
         "defaultHeight": 50
     },
     "WebView": {
         "defaultHTML": "",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/WebView.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/WebView.md",
         "edit": ["url"],
         "defaultWidth": 50,
         "defaultHeight": 50
     },
     "Rect": {
         "defaultHTML": "",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Rect.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Rect.md",
         "edit": ["scroll"],
         "defaultWidth": 50,
         "defaultHeight": 50
     },
     "Switch": {
         "defaultHTML": "<input controltype='Switch' type='checkbox'>Switch</input>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Rect.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Rect.md",
         "edit": ["text_align", "font_size", "checked", "content"],
         "defaultWidth": 50,
         "defaultHeight": 50
     },   
     "RadioButton": {
         "defaultHTML": "<input type='checkbox' controltype='RadioButton' style='border-radius: 50%;'>RadioButton</input>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/ProgressBar.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/ProgressBar.md",
         "edit": ["text_align", "font_size", "checked", "content"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "ListView": {
         "defaultHTML": "<h2 controltype='ListView'  style='color: red; width: 100%; height: 100%; '>soon...</h2>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Text.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Text.md",
         "edit": [],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "Text": {
         "defaultHTML": "<h2 controltype='Text' style='font-size: 16px; margin: 0px; font-weight: normal; width: 100% height: 100%; '>Text</h2>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Text.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Text.md",
         "edit": ["content", "font_size", "bold", "text_align"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "Image": {
         "defaultHTML": "<img controltype='Image'  src='https://d3m0n-project.github.io/d3m0n_c1/assets/logo_dark.png' style='-webkit-user-drag: none; width: 100%; height: 100%;'>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Image.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Image.md",
         "edit": ["src", "mode"],
         "defaultWidth": 50,
         "defaultHeight": 50
     },
     "Button": {
         "defaultHTML": "<button controltype='Button' style='width: 100%; height: 100%;'>Button</button>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Button.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Button.md",
         "edit": ["content", "font_size"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "RoundButton": {
         "defaultHTML": "<button controltype='RoundButton' style='width: 100%; height: 100%;'>RoundButton</button>",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/RoundButton.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/RoundButton.md",
         "edit": ["content", "font_size", "text_align", "image", "radius"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "Vscroll": {
         "defaultHTML": "",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Vscroll.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Vscroll.md",
         "edit": ["bar"],
         "defaultWidth": 50,
         "defaultHeight": 25
     },
     "Hscroll": {
         "defaultHTML": "",
-        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/rootfs/usr/share/d3m0n/documentation/Hscroll.md",
+        "doc": "https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/Hscroll.md",
         "edit": ["bar"],
         "defaultWidth": 50,
         "defaultHeight": 25
