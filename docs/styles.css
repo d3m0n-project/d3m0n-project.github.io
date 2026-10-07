@@ -359,6 +359,8 @@ left:5px;
 }
 .dynamic-txts li span::after{
   content: "";
+  background-image: "" !important;
+  background-color: black;
   position: absolute;
   left: 0;
   height: 90px;
