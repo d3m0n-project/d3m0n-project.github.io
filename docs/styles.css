@@ -71,6 +71,11 @@ p {
   position: relative;
 }
 
+.override_bg_img::after {
+  background: black !important;
+  background-image: none !important;
+}
+
 .rainbow_title {
   font-size: 45px;
   font-weight: 700;
@@ -318,8 +323,8 @@ left:5px;
 
 .paste-button:hover .dropdown-content {
   display: block;
-  -webkit-animation: 0.2s ease 0s normal forwards 1 fadein;
-  animation: 0.2s ease 0s normal forwards 1 fadein;
+  -webkit-animation: 0.4s ease 0s normal forwards 1 fadein;
+  animation: 0.4s ease 0s normal forwards 1 fadein;
 }
 
 .dropdown_button:hover .chevron {

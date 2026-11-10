@@ -1,8 +1,57 @@
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Getting Started - d3m0n project</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .getting-started { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; color: #222; line-height: 1.65; }
+    .getting-started h1 { margin-bottom: 12px; }
+    .getting-started h2 { margin-top: 36px; }
+    .getting-started li { margin: 10px 0; }
+    .getting-started .callout { padding: 16px 20px; border-left: 4px solid #7160d8; background: #f3f1ff; border-radius: 4px; }
+    .getting-started code { padding: 2px 5px; background: #f1f1f1; border-radius: 3px; }
+    .getting-started .primary-link { display: inline-block; margin: 12px 8px 4px 0; padding: 10px 16px; color: #fff; background: #5745bc; border-radius: 5px; text-decoration: none; }
+  </style>
 </head>
 <body>
-  <h1>Getting Started</h1>
-  <p>Lorem ipsum dolor sir amlet</p>
-  <p>TODO</p>
+  <main class="getting-started">
+    <h1>Getting Started with d3m0n OS</h1>
+    <p>You have a blank d3m0n device and want to see it boot. Install d3m0n OS on a microSD card, put the card in the device, and power it on.</p>
+
+    <p class="callout"><strong>What you need:</strong> a d3m0n C1 device, a microSD card, a card reader for your computer, and a computer with internet access. The OS is distributed as a bootable SD card image; you do not need to compile it for a first boot.</p>
+
+    <h2>1. Download the OS image</h2>
+    <ol>
+      <li>Open the <a href="https://github.com/d3m0n-project/d3m0n_os/releases/latest">latest d3m0n OS release</a>.</li>
+      <li>Download the release's <code>.img</code> image to your computer. If it is provided compressed, extract it first so the image file is ready to flash.</li>
+    </ol>
+
+    <h2>2. Flash the microSD card</h2>
+    <ol>
+      <li>Download and install <a href="https://etcher.balena.io/">balenaEtcher</a>.</li>
+      <li>Insert the microSD card into your computer. Copy any files you want to keep from it first; flashing erases the selected card.</li>
+      <li>In Etcher, choose <strong>Flash from file</strong> and select the d3m0n OS <code>.img</code>.</li>
+      <li>Choose the microSD card as the target, check that you selected the right removable drive, then choose <strong>Flash</strong>.</li>
+      <li>Wait for Etcher to finish writing and verifying the image, then safely eject the card.</li>
+    </ol>
+
+    <h2>3. Boot your device</h2>
+    <ol>
+      <li>With the device powered off, insert the flashed microSD card into its card slot.</li>
+      <li>Connect the device's display and power, then switch it on. The firmware and system files are now on the card, so the device can boot from it.</li>
+      <li>Wait for startup to finish. If it does not boot, power off and check that the card is fully seated and that Etcher completed verification; then flash the image again or try another supported microSD card.</li>
+    </ol>
+
+    <h2>4. Build and run an app</h2>
+    <p>Once d3m0n OS is running, you can build native applications with the <code>d3c</code> compiler and SDK. The Academy walks through installing d3c, creating a project, compiling a <code>.d3m0n</code> executable, and copying it into the device's <code>/apps</code> directory.</p>
+    <a class="primary-link" href="../academy/">Learn to build d3m0n apps in the Academy</a>
+
+    <h2>Build the OS yourself</h2>
+    <p>For developers who want to build an image from source, follow the <a href="https://github.com/d3m0n-project/d3m0n_os#installations">d3m0n_os repository instructions</a>. The source build currently targets Linux and creates an SD image with <code>make export</code>.</p>
+    <p><a href="../">Back to d3m0n Project</a></p>
+  </main>
 </body>
+</html>

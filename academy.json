@@ -1,51 +1,44 @@
 [
   {
-    "title": "App Layout Fundamentals",
-    "description": "Basic Entry Point to d3m0n layout system",
+    "title": "Build Your First d3m0n App",
+    "description": "Set up the d3c toolchain, create a native app, and build a .d3m0n executable.",
     "type": "course",
     "courses": [
       {
-        "name": "Introduction to layouts",
-        "description": "Learn the basics of the d3m0n layout system and how to use the App API.",
+        "name": "Set up the d3c SDK",
+        "description": "Install the compiler and create a project from the official template.",
         "activities": [
           {
             "type": "text",
-            "title": "Introduction to d3m0n Layouts",
-            "value": "d3m0n os app system uses a <strong>efficient</strong> and <strong>flexible</strong> layout system to design the user interface of applications. It is designed to be <strong>simple and powerful</strong>, allowing developers to <strong>create user interfaces</strong> with minimal effort. \nThey allow you to create <strong>static only (no animations)</strong> complex layouts with ease, using a <strong>simple and intuitive Framework</strong>. \n<br><br>\nIn this course, we will cover <strong>the basics of the d3m0n layout system</strong> and <strong>how to use the App API to interact with it</strong>.\n<br><br>\nLet's embark on this exciting journey to <strong>master application design</strong> on d3m0n OS!"
+            "title": "Apps for the current d3m0n OS",
+            "value": "The current d3m0n OS app toolchain is <strong>d3c</strong>, the C++ compiler and SDK included in the <a href=\"https://github.com/d3m0n-project/d3m0n_os\">d3m0n_os repository</a>. It builds native app executables with the <strong>.d3m0n</strong> extension. The older layout and source lessons described a different app system and do not apply to this version."
+          },
+          {
+            "type": "text",
+            "title": "Install d3c",
+            "value": "On a Linux development machine, clone the OS repository and install the compiler for your user. The compiler Makefile builds d3c and installs its SDK headers and project template. Add the printed install directory to PATH if the installer says it is not already available."
+          },
+          {
+            "type": "code",
+            "code_type": "bash",
+            "value": "git clone --recurse-submodules https://github.com/d3m0n-project/d3m0n_os.git\ncd d3m0n_os/compiler\nmake INSTALL_FOR_EVERYONE=0 install\nexport PATH=\"$PATH:$HOME/com.ares\"\nd3c init HelloD3m0n\ncd HelloD3m0n"
           },
           {
             "type": "text-important",
-            "value": "To continue to the next chapter, you need to complete the quiz. This is important to ensure that you have understood the concepts covered in this chapter."
+            "value": "The commands above follow the current compiler Makefile: it installs to ~/com.ares for a user install. If you open a new terminal, add <code>export PATH=\"$PATH:$HOME/com.ares\"</code> to your shell profile so that d3c stays available."
           },
           {
             "type": "quiz",
-            "title": "Layout Basics Quiz",
+            "title": "Toolchain Check",
             "questions": [
               {
-                "question": "What is the main purpose of the d3m0n layout system?",
-                "options": [
-                  "To create 3D models",
-                  "To create User Interface layouts",
-                  "To handle animations"
-                ],
-                "answer": 1
-              },
-              {
-                "question": "Which API is used to interact with d3m0n layouts?",
-                "options": [
-                  "d3m0n API",
-                  "Layout API",
-                  "UI API",
-                  "HTML"
-                ],
+                "question": "Which tool builds native d3m0n OS apps?",
+                "options": ["d3c", "Etcher", "QEMU"],
                 "answer": 0
               },
               {
-                "question": "Is it possible to make animations using only d3m0n layout?",
-                "options": [
-                  "Of course!",
-                  "No"
-                ],
+                "question": "What file extension does a built app use?",
+                "options": [".layout", ".d3m0n", ".img"],
                 "answer": 1
               }
             ]
@@ -53,86 +46,40 @@
         ]
       },
       {
-        "name": "Understanding Basic Layout Elements and Classes of Controls",
-        "description": "Learn the basics layout elements to make your future d3m0n Application.",
+        "name": "Explore the starter project",
+        "description": "Understand the template entry point, metadata, and window code.",
         "activities": [
           {
             "type": "text",
-            "title": "Basic Layout Elements",
-            "value": "d3m0n layout system provides a set of basic elements that can be used to create user interfaces. These elements can be stored in a file with the extension <strong>.layout</strong> and placed in a directory called <strong>layouts</strong>"
+            "title": "Project structure",
+            "value": "The generated project contains a <code>Makefile</code>, <code>icon.ico</code>, and a <code>src</code> directory. The Makefile compiles every C++ source file under <code>src</code> with d3c and writes one executable named after the project. Start by reading <code>src/main.cpp</code> and the example window under <code>src/windows</code>."
           },
           {
             "type": "text",
-            "title": "Create Your First Application",
-            "value": "To create your first application, you need to create a new folder anywhere in your computer and create a new file in it without extension called <strong>app</strong> inside it. This file will contain the app's informations."
-          },
-          {
-            "type": "image",
-            "src": "assets/app_create.png"
-          },
-          {
-            "type": "text",
-            "value": "You can now put this inside the <strong>app file</strong> to make your first application: <br><br>\n<u>name</u> is the name of your application, <br>\n<u>package</u> is the package name of your application: should be unique, <br>\n<u>icon</u> is the path to the icon of your application, <br>\n<u>perms</u> is the permissions required by your application, <br>\n<u>start_path</u> is the path where your application will start, <br>\n<u>category</u> is the category of your application."
+            "title": "App entry point and metadata",
+            "value": "The template calls <code>APP_INFO(name, version, author, description, icon)</code> to embed app details. Its <code>main</code> function creates a window and passes it to <code>Application::run(window)</code>. Use the SDK headers in <code>compiler/sdk/lib</code> and the template as the working example for available UI classes and events."
           },
           {
             "type": "code",
-            "code_type": "manifest",
-            "value": "name: myApp\npackage: com.myteam.myApp\nicon: default\nperms: none\nstart_path: ~\ncategory: tests"
+            "code_type": "cpp",
+            "value": "#include \"sys.h\"\n#include \"stdio.hpp\"\n#include \"app.hpp\"\n#include \"stdlib.h\"\n\nAPP_INFO(\n    \"Hello d3m0n\",\n    1.0,\n    \"Your name\",\n    \"My first d3m0n app\",\n    \"icon.ico\"\n)\n\n#include \"windows/main_window.hpp\"\n\nextern \"C\" int main(void)\n{\n    MainWindow window;\n    Application::run(window);\n    return 0;\n}"
           },
           {
-            "type": "text",
-            "value": "\nNow you can create a new file called <strong>main.layout</strong> in a new folder called <strong>layouts</strong>.\n<br>\nThis is now the structure of your application:\n<br><br>\nmyAppDirectory/ <br>\n├── app<br>\n└── layouts/<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── main.layout<br>\n<br><br>\nThe <strong>main.layout</strong> file will contain the layout of your application. You can use the following code to create a simple layout with a red rectangle on the left side of the screen:"
-          },
-          {
-            "type": "code",
-            "value": "# d3m0n layout\n\nWindow:\n\twidth=\"100%\";\n\theight=\"100%\";\n\ttitle=\"Color Test\";\n\tbg_color=\"white\";\n\ttopbar=\"true\";\n\nRect:\n\tbg_color=\"red\";\n\tlocation=\"10, 10\";\n\twidth=\"10\";\n\theight=\"100%\";",
-            "code_type": "layout"
-          },
-          {
-            "type": "text",
-            "value": "As you can see, the layout is defined using a simple syntax. The <strong>Window</strong> element defines the main window of the application, and the <strong>Rect</strong> element defines a rectangle that will be displayed on the left side of the screen.\n<br><br>\nProperties of the elements are defined using the <strong>name=\"value\";</strong> syntax, where <strong>name</strong> is the name of the property and <strong>value</strong> is the value of the property.\n<br> \nHere is a list of the Controls that can be used in d3m0n layout elements:\n<ul>\n<li><strong>TextBox</strong>: A text input box.</li>\n<li><strong>ListView</strong>: A control to show a list of items.</li>\n<li><strong>ProgressBar</strong>: A bar that can used to select a number between min and max defined by user.</li>\n<li><strong>CheckBox</strong>: A simple check switch with two states (on and off).</li>\n<li><strong>RadioButton</strong>: A simple on and off switch but once you clicked you cannot remove it => for single choice inputs.</li>\n<li><strong>RawHtml (⚠️ don't work)</strong>: A simple HTML display for custom controls.</li>\n<li><strong>WebView (⚠️ don't work)</strong>: A simple web browser.</li>\n<li><strong>Rect</strong>: A rectangle.</li>\n<li><strong>Switch</strong>: A on and off switch.</li>\n<li><strong>Text</strong>: A simple text.</li>\n<li><strong>Image</strong>: A simple rect where you can display your images.</li>\n<li><strong>RoundButton</strong>: A regular button but with round corners.</li>\n<li><strong>Button</strong>: A simple button.</li>\n<li><strong>Hscroll</strong>: A horizontal rect with a scroll bar.</li>\n<li><strong>Vscroll</strong>: A vertical rect with a scroll bar.</li>\n</ul>\n<br>\nMore infos about these controls can be found in the <a href=\"https://github.com/d3m0n-project/d3m0n_os/blob/main/documentation/api.md#controls\">documentation</a>\n"
+            "type": "text-important",
+            "value": "Keep the template's SDK includes, metadata macro, and C-linkage <code>main</code> entry point while you make your first changes. Check the example window and SDK headers before using an API; the old web Academy's layout controls and scripting syntax belong to a retired system."
           },
           {
             "type": "quiz",
-            "title": "Layout Elements Quiz",
+            "title": "Project Basics",
             "questions": [
               {
-                "question": "What is the control that can display an image?",
-                "options": [
-                  "A WebView",
-                  "A PictureBox",
-                  "An Image",
-                  "A Canvas"
-                ],
-                "answer": 2
-              },
-              {
-                "question": "Which control does not exists in d3m0n layout?",
-                "options": [
-                  "Hscroll",
-                  "Rect",
-                  "WebView",
-                  "SearchBar"
-                ],
-                "answer": 3
-              },
-              {
-                "question": "Whats the difference between a <strong>WebView</strong> and an <strong>Image</strong> control?",
-                "options": [
-                  "Only WebView can display HTML content",
-                  "Only PictureBox can display HTML content",
-                  "Both can display HTML content",
-                  "Neither can display HTML content"
-                ],
+                "question": "What does APP_INFO provide?",
+                "options": ["Embedded app metadata", "An SD card partition", "A compiler installation"],
                 "answer": 0
               },
               {
-                "question": "Whats the difference between a <strong>Switch</strong>, a <strong>CheckBox</strong> and a <strong>RadioButton</strong>?",
-                "options": [
-                  "The name",
-                  "Only the design",
-                  "The functionality"
-                ],
+                "question": "Where does the starter project put C++ source files?",
+                "options": ["layouts/", "src/", "rootfs/"],
                 "answer": 1
               }
             ]
@@ -140,104 +87,41 @@
         ]
       },
       {
-        "name": "Running Your First Application",
-        "description": "You have created your first application, now you will learn how to run it.",
+        "name": "Build and install your app",
+        "description": "Compile the project, then place the executable where the OS launcher can find it.",
         "activities": [
           {
             "type": "text",
-            "title": "Running Your First Application",
-            "value": "\nTo run your first application, you first need to create a executable application file.\n<br>\nThis file can be simply created by zipping the <strong>app and the layouts folder together</strong>. <br>\nThen rename the file to somthing like <u>changeMe.d3m0n</u>\n<br><br>\nThat's it! You can now run your application by uploading on your d3m0n device and put it in the <strong>applications</strong> directory.\n<br>\nNow you can run your application by clicking on it in the d3m0n OS menu!!\n\n<br><br><br>\nYou can also run your application by using the <a href=\"../studio/\">d3m0n App Studio</a> or the <a href=\"../emulator/\">Device Emulator</a> to test your app's layout in the d3m0n OS. <br>\n<br>\nJust import your layout file and it will show you what it will look like in the d3m0n OS.\n"
-          },
-          {
-            "type": "image",
-            "src": "assets/app_view.png"
-          },
-          {
-            "type": "text",
-            "value": "Making applications layouts is nice but without a live rendering it's harder to do so you can use the <a href=\"../studio/\">No Code App Studio</a> to create unique designs.\n<br>\nJust drag and drop the controls you want to use and then edit their properties in the right panel."
-          },
-          {
-            "type": "quiz",
-            "title": "Layout Basics Quiz",
-            "questions": [
-              {
-                "question": "What is the main purpose of the d3m0n layout system?",
-                "options": [
-                  "To create 3D models",
-                  "To create User Interface layouts",
-                  "To handle animations"
-                ],
-                "answer": 1
-              },
-              {
-                "question": "Which API is used to interact with d3m0n layouts?",
-                "options": [
-                  "d3m0n API",
-                  "Layout API",
-                  "UI API",
-                  "HTML"
-                ],
-                "answer": 0
-              },
-              {
-                "question": "Is it possible to make animations using only d3m0n layout?",
-                "options": [
-                  "Of course!",
-                  "No"
-                ],
-                "answer": 1
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Scripting Fundamentals",
-    "description": "Basic Entry Point to d3m0n source system",
-    "type": "course",
-    "courses": [
-      {
-        "name": "Introduction to scripting",
-        "description": "Learn the basics of the d3m0n scripting system and how to interract with the layout.",
-        "activities": [
-          {
-            "type": "text",
-            "title": "Introduction to d3m0n Scripting",
-            "value": "Design is cool but it's only static so scripting is the way to make your application dynamic and interactive. In this course, we will cover the basics of the d3m0n scripting system and how to use the App API to interact with it."
-          },
-          {
-            "type": "text-important",
-            "value": "All you app scripts should start with the header <strong>'# d3m0n source'</strong> to be recognized by the d3m0n system. This is important to avoid conflicts with other scripts and to ensure that your app runs correctly."
+            "title": "Compile a .d3m0n executable",
+            "value": "From the project directory, run <code>make export</code>. The template Makefile invokes d3c and places the executable in the current directory; for the project above, the output is <code>HelloD3m0n.d3m0n</code>. You can also compile an individual C++ source with d3c, but the template Makefile is the simplest way to build a multi-file app."
           },
           {
             "type": "code",
-            "value": "# d3m0n source\n\nWindow.OnCreate =>\n\tconsole.logn(\"This is a colored text with a new line\", \"lime\");\n\tprint(\"Do this if you bored of using colors\");\n    sleep(1000);\n    alert(\"This is an alert message\");\n    system.log(\"This is a log message without a new line\", \"red\");",
-            "code_type": "script"
+            "code_type": "bash",
+            "value": "make export\nls -l *.d3m0n"
+          },
+          {
+            "type": "text",
+            "title": "Run it on d3m0n OS",
+            "value": "Copy the finished <code>.d3m0n</code> file to the device's <code>/apps</code> directory. The OS launcher scans that directory (and its category subdirectories) for <code>.d3m0n</code> executables; open the launcher and select your app. The template's <code>Application::run</code> starts its main window. For a repeatable development workflow, add your app to the OS repository's <code>applications</code> tree using the existing app Makefile pattern; <code>make export</code> builds those apps into an OS image."
+          },
+          {
+            "type": "text",
+            "value": "You can try the app on real hardware after following <a href=\"../getting_started/\">Getting Started</a>. To build and boot the OS in QEMU, see the <a href=\"https://github.com/d3m0n-project/d3m0n_os#installations\">OS repository instructions</a>. The current app template does not document a standalone simulator workflow, so validate against a device or the repository's supported emulator setup."
           },
           {
             "type": "quiz",
-            "title": "Scripting Basics Quiz",
+            "title": "Build and Run",
             "questions": [
               {
-                "question": "What is the difference between log and logn?",
-                "options": [
-                  "The new-line after the message",
-                  "The color",
-                  "There is no difference"
-                ],
+                "question": "Which command builds the project template's executable?",
+                "options": ["make export", "make flash", "d3m0n run"],
                 "answer": 0
               },
               {
-                "question": "Which function can wait 3s before continue running?",
-                "options": [
-                  "time.sleep(3000)",
-                  "System.Threading.Sleep(3000)",
-                  "sleep(3000)",
-                  "wait(3)"
-                ],
-                "answer": 2
+                "question": "Where does the OS launcher look for app executables?",
+                "options": ["/boot/", "/apps/", "/layouts/"],
+                "answer": 1
               }
             ]
           }
